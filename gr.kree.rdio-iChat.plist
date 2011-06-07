@@ -4,8 +4,6 @@
 <dict>
   <key>Label</key>
   <string>gr.kree.rdio-iChat</string>
-  <key>KeepAlive</key>
-  <false/>
   <key>ProgramArguments</key>
   <array>
     <string>./bin/python</string>
@@ -17,6 +15,8 @@
   <key>WorkingDirectory</key>
   <string>/Users/bkreeger/Developer/kreeger/rdio-ichat</string>
   <key>StartInterval</key>
-  <string>180</string>
+  <integer>180</integer>
+  <key>OnDemand</key>
+  <true/>
 </dict>
 </plist>

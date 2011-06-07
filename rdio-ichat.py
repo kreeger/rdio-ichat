@@ -33,4 +33,5 @@ status_new = u'Now Playing on Rdio: \u266B %s \u2014 %s' % (
 status = app('iChat').status_message.get()
 if not status == status_new:
 	app('iChat').status_message.set(status_new)
-	print u'Set status %s' % status_new
+	print u'Status updated for %s - %s' % (
+		s.artist_name, s.name,)
