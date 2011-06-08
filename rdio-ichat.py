@@ -4,14 +4,26 @@ from datetime import datetime
 from dateutil import tz
 from appscript import *
 
-# Get username from command line; if nonexistent, quit
-USERNAME = sys.argv[1] if len(sys.argv) > 1 else None
-if not USERNAME:
-	print u'You must supply a username as a command line argument.'
+# Get the consumer key from command line; if nonexistent, quit
+consumer_key = sys.argv[1] if len(sys.argv) > 1 else None
+if not consumer_key:
+	print u'You must supply a consumer key as the first command line argument.'
 	sys.exit()
 
-m = rdio.Api('z4m9gvhwxzjpmqan2hb4zvfx', 't6G8HrRDGT')
-u = m.find_user(vanity_name=USERNAME)
+# Get the consumer secret from command line; if nonexistent, quit
+consumer_secret = sys.argv[2] if len(sys.argv) > 2 else None
+if not consumer_key:
+	print u'You must supply a consumer secret as the second command line argument.'
+	sys.exit()
+
+# Get username from command line; if nonexistent, quit
+vanity = sys.argv[3] if len(sys.argv) > 3 else None
+if not vanity:
+	print u'You must supply a username as the third command line argument.'
+	sys.exit()
+
+m = rdio.Api(consumer_key, consumer_secret)
+u = m.find_user(vanity_name=vanity)
 if (u): u = m.get(keys=[u.key,], extras=[
 					'lastSongPlayed',
 					'lastSongPlayTime',
